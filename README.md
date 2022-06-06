@@ -1,5 +1,5 @@
 # Debian image for Amlogic SOC's.
-Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LTS kernel.
+Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LTS kernel.
 
 ## Current images:
 - Debian bullseye (v11) with kernel 5.15.45
