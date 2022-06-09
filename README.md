@@ -13,7 +13,7 @@ Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LT
 - S922X (Meson G12B), 1000M ethernet
 - Experimental: S905X4 (Meson SC2)
 
-## Tested tvboxes with specific DTB
+## Tested TV-boxes with specific DTB (bluetooth / leds / vfd display)
 - A95X F2 (S905X2)
 - Beelink GT King (S922X)
 - H96 Max X3 (S905X3, 1000M ethernet)
@@ -31,7 +31,7 @@ Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LT
 - x96 X4 Gigabit (S905X3, 1000M ethernet)
 
 ## Install
-1. Burn the image to a USB flash disk or sdcard with some image burner like Balena Etcher, win32diskimager, dd or something
+1. Burn the image to a USB flash disk (or sdcard) with some image burner like Balena Etcher, Win32Diskimager, dd or something
 2. Open **boot.config** on the first FAT-partition with an editor
 3. Uncomment the **box=** line for your box.
 4. If you want to boot from sdcard: uncomment the line **root=/dev/mmcblk0p1**
@@ -49,7 +49,7 @@ Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LT
 ## Boot process
 - The boot script uses the vendor bootloader on the box, so there is no bootloader in the image
 - The boot script does not use a "chain loaded" bootloader
-- The boot script will NOT install 'multiboot' or modify the bootloader environment with its boot procedure. This in contrary of most other images for Amlogic boxes. This means that it is almost impossible to damage/brick your device while trying to boot with this image. This also means that you have to push the reset button every time you want to boot with this image. However, you can install 'multiboot' by running **./aml-multiboot-setup.sh** in the /root directory. This script WILL change your bootloader's environment, so there is a chance (very small, but still) this can 'brick' your box. If you don't have the tools, images or knowledge to unbrick your box: be warned and don't blame me or ask me for help. 
+- The boot script will NOT install 'multiboot' or modify the bootloader environment with its boot procedure. This in contrary of most other images for Amlogic boxes. This means that it is almost impossible to damage/brick your device while trying to boot with this image. This also means that you have to push the reset button every time you want to boot with this image. However, you can install 'multiboot' by running **./aml-multiboot-setup.sh** in the */root* directory when booted into Linux. That script WILL change your bootloader's environment, so there is a chance (very small, but still) this can 'brick' your box. If you don't have the tools, images or knowledge to unbrick your box: be warned and don't blame me or ask me for help. 
 
 ## What does work
 In most cases:
@@ -68,10 +68,13 @@ In most cases:
 **X96 Max Plus Q2:** Wifi (qca6174) is slow/lagging for small transfers  
 **X96X4:** wifi sometimes will not come up (seems to be some power issue with the box itself). HDMI does not really work, but with the use of simpleframebuffer there is a console. 
 
-### not tested but will probably work
+### Not tested but will probably work
 - cec
 - ir
 
-### not tested and probably won't work:
+### Not tested and probably won't work:
 - S/PDiff port
 - av-port
+
+## Sources
+Sorry no sources at this moment. Not that I don't want to share, but because they are messy and I don't have the time to clean them up.   However, most of the sources for the images are just shell scripts, so feel free to reuse them. Also the bootscripts, box configs and DTB's are all there. When I have some time to spare I will try to upload the sources.
