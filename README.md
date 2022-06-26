@@ -1,10 +1,10 @@
 # Debian image for Amlogic SOC's.
-Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LTS kernel.
+Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LTS kernel. Boots the kernel with vendor u-boot, so without chainloading of u-boot.
 
 ## Current images:
-- Debian bullseye (v11) with kernel 5.15.45
-- Ubuntu jammy (v22.04 LTS) with kernel 5.15.45
-- Armbian 22.05 with DEVMFC boot config and kernel.
+- Debian Bullseye (v11) with kernel 5.15.50
+- Ubuntu Jammy (v22.04 LTS) with kernel 5.15.50
+- Armbian 22.05 Jammy with DEVMFC boot config and kernel 5.15.50. (**unofficial**, so *no* support from the Armbian team)
 
 ## Current supported SOC's via generic DTB's (device tree's)
 - S905X (Meson GXL)
@@ -28,7 +28,7 @@ Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LT
 - X96 Max Plus 2 (S905X3, 1000M ethernet)
 - X96 Max Plus 2T (S905X3, 1000M ethernet)
 - X96 Max Plus Q2 (S905X3, 1000M ethernet)
-- x96 X4 Gigabit (S905X3, 1000M ethernet)
+- x96 X4 Gigabit (**EXPERIMENTAL** S905X4, 1000M ethernet)
 
 ## Install
 1. Burn the image to a USB flash disk (or sdcard) with some image burner like Balena Etcher, Win32Diskimager, dd or something
