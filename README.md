@@ -4,7 +4,7 @@ Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LT
 ## Current images:
 - Debian Bullseye (v11) with kernel 5.15.50
 - Ubuntu Jammy (v22.04 LTS) with kernel 5.15.50
-- Armbian 22.05 Jammy with DEVMFC boot config and kernel 5.15.50. (**unofficial**, so *no* support from the Armbian team)
+- Armbian 22.05 Jammy with DEVMFC boot config and kernel 5.15.50. (**unofficial**, so **no** support from the Armbian team)
 
 ## Current supported SOC's via generic DTB's (device tree's)
 - S905X (Meson GXL)
@@ -41,7 +41,7 @@ Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LT
 3. put the disk in the box
 4. hold the reset/update button (in most cases this button is hidden in the av-port, get a toothpick or cotton tip and push the button with that) 
 5. power on the box
-6. hold the reset/update button for about 7 seconds (longer does not hurd)
+6. hold the reset/update button for about 7 seconds (longer does not hurt)
 7. it should now boot to Debian / Ubuntu
 8. you can login with user **root**, password: **tvbox**
 12. Have fun
@@ -53,15 +53,15 @@ Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LT
 
 ## What does work
 In most cases:
-- HDMI
-- HDMI sound
-- USB 2 and 3
-- eMMC
-- SDCARD
-- Ethernet (100M and Gigabit)
-- Wifi
-- Bluetooth
-- VFD Led Display
+[x] HDMI
+[x]  HDMI sound
+[x]  USB 2 and 3
+[x]  eMMC
+[x]  SDCARD
+[x]  Ethernet (100M and Gigabit)
+[x]  Wifi
+[x]  Bluetooth
+[x]  VFD Led Display
 
 ### Exceptions
 **A95XF2:** bluetooth (MT7668) will not work, wifi does work  
