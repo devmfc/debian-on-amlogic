@@ -1,5 +1,5 @@
 # Debian image for Amlogic SOC's.
-Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LTS kernel. Boots the kernel with vendor u-boot, so without chainloading of u-boot.
+Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chainloaded u-boot.
 
 ## Current images:
 - Debian Bullseye (v11) with kernel 5.15.50
@@ -21,14 +21,14 @@ Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LT
 - Tanix TX3 (S905X3, 1000M ethernet)
 - TOX1 (S905X3, 1000M ethernet)
 - X88 Pro X3 (S905X3, 1000M ethernet)
-- X96 (S905X3)
+- X96 (S905X, 100M ethernet))
 - X96 Air A100 (S905X3, 100M ethernet)
 - X96 Air P2 (S905X3, 1000M ethernet)
 - X96 Air P3 (S905X3, 1000M ethernet)
 - X96 Max Plus 2 (S905X3, 1000M ethernet)
 - X96 Max Plus 2T (S905X3, 1000M ethernet)
 - X96 Max Plus Q2 (S905X3, 1000M ethernet)
-- x96 X4 Gigabit (**EXPERIMENTAL** S905X4, 1000M ethernet)
+- x96 X4 (**EXPERIMENTAL** S905X4, 1000M ethernet)
 
 ## Install
 1. Burn the image to a USB flash disk (or sdcard) with some image burner like Balena Etcher, Win32Diskimager, dd or something
@@ -53,15 +53,15 @@ Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LT
 
 ## What does work
 In most cases:
-[x] HDMI
-[x]  HDMI sound
-[x]  USB 2 and 3
-[x]  eMMC
-[x]  SDCARD
-[x]  Ethernet (100M and Gigabit)
-[x]  Wifi
-[x]  Bluetooth
-[x]  VFD Led Display
+- HDMI
+- HDMI sound
+- USB 2 and 3
+- eMMC
+- SDCARD
+- Ethernet (100M and Gigabit)
+- Wifi
+- Bluetooth
+- VFD Led Display
 
 ### Exceptions
 **A95XF2:** bluetooth (MT7668) will not work, wifi does work  
