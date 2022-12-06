@@ -2,9 +2,8 @@
 Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chainloaded u-boot.
 
 ## Current images:
-- Debian Bullseye (v11) with kernel 5.15.50
-- Ubuntu Jammy (v22.04 LTS) with kernel 5.15.50
-- Armbian 22.05 Jammy with DEVMFC boot config and kernel 5.15.50. (**unofficial**, so **no** support from the Armbian team)
+- Debian Bullseye (v11) with kernel 5.15.81
+- Ubuntu Kinetic (v22.10) with kernel 5.15.81
 
 ## Current supported SOC's via generic DTB's (device tree's)
 - S905X (Meson GXL)
