@@ -1,4 +1,4 @@
-# Debian image for Amlogic SOC's.
+# Debian image for Android boxes with Amlogic SOC's.
 Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chainloaded u-boot.
 
 ## Current images:
