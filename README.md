@@ -33,7 +33,7 @@ Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LT
 1. Burn the image to a USB flash disk (or sdcard) with some image burner like Balena Etcher, Win32Diskimager, dd or something
 2. Open **boot.config** on the first FAT-partition with an editor
 3. Uncomment the **box=** line for your box.
-4. If you want to boot from sdcard: uncomment the line **root=/dev/mmcblk0p1**
+4. If you want to boot from sdcard: uncomment the line **root=/dev/mmcblk0p2**
 5. Save the config file. 
 
 ## Start
