@@ -1,16 +1,18 @@
-# Debian image for Android boxes with Amlogic SOC's.
+# Debian image for Android TV boxes with Amlogic SOC's.
 Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chainloaded u-boot.
 
 ## Current images:
-- Debian Bullseye (v11) with kernel 6.1.1
-- Ubuntu Kinetic (v22.10) with kernel 6.1.1
+- Debian Bookworm preview (v12) with kernel 6.1.25
+- Ubuntu Kunar (v23.04)  with kernel 6.1.25
 
 ## Tested TV-boxes with box specific DTB (bluetooth / leds / vfd display)
 - A95X F2 (S905X2)
 - Beelink GT King (S922X)
 - H96 Max X3 (S905X3, 1000M ethernet)
 - HK1 X3 (S905X3, 1000M ethernet)
+- KM8 Pro (S912, 1000M ethernet)
 - Tanix TX3 (S905X3, 1000M ethernet)
+- Tanix W2 (**EXPERIMENTAL** S905W2, 100M ethernet)
 - TOX1 (S905X3, 1000M ethernet)
 - X88 Pro X3 (S905X3, 1000M ethernet)
 - X96 (S905X, 100M ethernet))
@@ -22,12 +24,15 @@ Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LT
 - X96 Max Plus Q2 (S905X3, 1000M ethernet)
 - x96 X4 (**EXPERIMENTAL** S905X4, 1000M ethernet)
 
-## Current supported SOC's via generic DTB's (device tree's)
+
+## Current supported SOC's via generic DTB's (device trees)
 - S905X (Meson GXL)
 - S905X2 (Meson G12A), 100M and 1000M ethernet
 - S905X3 (Meson SM1), 100M and 1000M ethernet
+- S912 (Meson GXM), 1000M ethernet
 - S922X (Meson G12B), 1000M ethernet
 - Experimental: S905X4 (Meson SC2)
+- Experimental: S905W2 (Meson S4)
 
 ## Install
 1. Burn the image to a USB flash disk (or sdcard) with some image burner like Balena Etcher, Win32Diskimager, dd or something
@@ -63,9 +68,10 @@ In most cases:
 - VFD Led Display
 
 ### Exceptions
-**A95XF2:** bluetooth (MT7668) will not work, wifi does work  
+**A95X F2:** bluetooth (MT7668) will not work, wifi does work  
 **X96 Max Plus Q2:** Wifi (qca6174) is slow/lagging for small transfers  
-**X96X4:** HDMI does not really work, but with the use of simpleframebuffer there is a console. 
+**X96 X4:** HDMI does not really work, but with the use of simpleframebuffer there is a console. 
+**Tanxix W2:** HDMI does not work, but it is usable as a headless server
 
 ### Not tested but will probably work
 - cec
