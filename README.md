@@ -1,9 +1,9 @@
-# Debian image for Android TV boxes with Amlogic SOC's.
-Minimal Debian and Ubuntu images for Amlogic based OTT TV-boxes with mainline LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chainloaded u-boot.
+# Debian Linux image for Android TV boxes with Amlogic SOC's.
+Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chainloaded u-boot.
 
 ## Current images:
 - Debian Bookworm preview (v12) with kernel 6.1.25
-- Ubuntu Kunar (v23.04)  with kernel 6.1.25
+- Ubuntu Lunar (v23.04)  with kernel 6.1.25
 
 ## Tested TV-boxes with box specific DTB (bluetooth / leds / vfd display)
 - A95X F2 (S905X2)
