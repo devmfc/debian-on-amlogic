@@ -2,10 +2,15 @@
 Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chainloaded u-boot.
 
 ## Current images:
-- Debian Bookworm preview (v12) with Linux kernel 6.1.25
-- Ubuntu Lunar (v23.04)  with Linux kernel 6.1.25
+- Debian Bookworm preview (v12) with Linux kernel 6.1.38
+- Ubuntu Lunar (v23.04)  with Linux kernel 6.1.38
 
+## New boxes since this release:
+- A95X (S905 version, 100M)
+- X96 Mini (S905W, 100M, wifi does not work)
+ 
 ## Tested TV-boxes with box specific DTB (bluetooth / leds / vfd display)
+- A95X (S905)
 - A95X F2 (S905X2)
 - Beelink GT King (S922X)
 - H96 Max X3 (S905X3, 1000M ethernet)
@@ -22,10 +27,13 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 - X96 Max Plus 2 (S905X3, 1000M ethernet)
 - X96 Max Plus 2T (S905X3, 1000M ethernet)
 - X96 Max Plus Q2 (S905X3, 1000M ethernet)
+- X96 Mini (S905W, 100M ethernet)
 - x96 X4 (**EXPERIMENTAL** S905X4, 1000M ethernet)
 
 
 ## Current supported SOC's via generic DTB's (device trees)
+- S905 (Meson GXBB)
+- S905W (Meson GXL)
 - S905X (Meson GXL)
 - S905X2 (Meson G12A), 100M and 1000M ethernet
 - S905X3 (Meson SM1), 100M and 1000M ethernet
@@ -70,6 +78,7 @@ In most cases:
 ### Exceptions
 **A95X F2:** bluetooth (MT7668) will not work, wifi does work  
 **X96 Max Plus Q2:** Wifi (qca6174) is slow/lagging for small transfers  
+**X96 Mini** Wifi does not work
 **X96 X4:** HDMI does not really work, but with the use of simpleframebuffer there is a console. 
 **Tanxix W2:** HDMI does not work, but it is usable as a headless server
 
