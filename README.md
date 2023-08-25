@@ -1,19 +1,19 @@
 # Debian Linux image for Android TV boxes with Amlogic SOC's.
-Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chainloaded u-boot.
+Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chain loaded u-boot.
 
 ## Current images:
-- Debian Bookworm preview (v12) with Linux kernel 6.1.38
-- Ubuntu Lunar (v23.04)  with Linux kernel 6.1.38
+- Debian Bookworm (v12) with Linux kernel 6.1.47
+- Ubuntu Lunar (v23.04)  with Linux kernel 6.1.47
 
 ## New boxes since this release:
-- A95X (S905 version, 100M)
-- X96 Mini (S905W, 100M, wifi does not work)
+- H96 Pro + (S912, 1000M)
  
 ## Tested TV-boxes with box specific DTB (bluetooth / leds / vfd display)
 - A95X (S905)
 - A95X F2 (S905X2)
 - Beelink GT King (S922X)
 - H96 Max X3 (S905X3, 1000M ethernet)
+- H96 Pro Plus (S912, 1000M ethernet)
 - HK1 X3 (S905X3, 1000M ethernet)
 - KM8 Pro (S912, 1000M ethernet)
 - Tanix TX3 (S905X3, 1000M ethernet)
