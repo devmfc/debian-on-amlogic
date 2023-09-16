@@ -78,9 +78,9 @@ In most cases:
 ### Exceptions
 **A95X F2:** bluetooth (MT7668) will not work, wifi does work  
 **X96 Max Plus Q2:** Wifi (qca6174) is slow/lagging for small transfers  
-**X96 Mini** Wifi does not work
-**X96 X4:** HDMI does not really work, but with the use of simpleframebuffer there is a console. 
-**Tanxix W2:** HDMI does not work, but it is usable as a headless server
+**X96 Mini** Wifi does not work  
+**X96 X4:** HDMI does not really work, but with the use of simpleframebuffer there is a console.  
+**Tanxix W2:** HDMI does not work, but it is usable as a headless server  
 
 ### Not tested but will probably work
 - cec
