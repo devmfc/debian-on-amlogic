@@ -2,11 +2,11 @@
 Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chain loaded u-boot.
 
 ## Current images:
-- Debian Bookworm (v12) with Linux kernel 6.1.47
-- Ubuntu Lunar (v23.04)  with Linux kernel 6.1.47
+- Debian Bookworm (v12) with Linux kernel 6.1.57
+- Ubuntu Mantic (v23.10)  with Linux kernel 6.1.57
 
 ## New boxes since this release:
-- H96 Pro + (S912, 1000M)
+-
  
 ## Tested TV-boxes with box specific DTB (bluetooth / leds / vfd display)
 - A95X (S905)
@@ -80,7 +80,7 @@ In most cases:
 **X96 Max Plus Q2:** Wifi (qca6174) is slow/lagging for small transfers  
 **X96 Mini** Wifi does not work  
 **X96 X4:** HDMI does not really work, but with the use of simpleframebuffer there is a console.  
-**Tanxix W2:** HDMI does not work, but it is usable as a headless server  
+**Tanxix W2:** HDMI does not work, but it is usable as a headless server, wifi does not work  
 
 ### Not tested but will probably work
 - cec
