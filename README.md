@@ -7,7 +7,6 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 
 ## New boxes since this release:
 - Vontar X4 (S905X4, thus experimental)
-- X96 Max Plus A5
 - X96 Max Plus 2101W
  
 ## Tested TV-boxes with box specific DTB (bluetooth / leds / vfd display)
@@ -21,12 +20,14 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 - Tanix TX3 (S905X3, 1000M ethernet)
 - Tanix W2 (**EXPERIMENTAL** S905W2, 100M ethernet)
 - TOX1 (S905X3, 1000M ethernet)
+- Vontar X4 (**EXPERIMENTAL** S905X4, 1000M ethernet)
 - X88 Pro X3 (S905X3, 1000M ethernet)
 - X96 (S905X, 100M ethernet))
 - X96 Air A100 (S905X3, 100M ethernet)
 - X96 Air P2 (S905X3, 1000M ethernet)
 - X96 Air P3 (S905X3, 1000M ethernet)
 - X96 Max Plus 2 (S905X3, 1000M ethernet)
+- X96 Max Plus 2101W (S905X3, 1000M ethernet)
 - X96 Max Plus 2T (S905X3, 1000M ethernet)
 - X96 Max Plus Q2 (S905X3, 1000M ethernet)
 - X96 Mini (S905W, 100M ethernet)
