@@ -2,11 +2,13 @@
 Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chain loaded u-boot.
 
 ## Current images:
-- Debian Bookworm (v12) with Linux kernel 6.6.1
-- Ubuntu Mantic (v23.10)  with Linux kernel 6.6.1
+- Debian Bookworm (v12) with Linux kernel 6.6.8
+- Ubuntu Mantic (v23.10)  with Linux kernel 6.6.8
 
 ## New boxes since this release:
--
+- Vontar X4 (S905X4, thus experimental)
+- X96 Max Plus A5
+- X96 Max Plus 2101W
  
 ## Tested TV-boxes with box specific DTB (bluetooth / leds / vfd display)
 - A95X (S905)
@@ -46,7 +48,6 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 1. Burn the image to a USB flash disk (or sdcard) with some image burner like Balena Etcher, Win32Diskimager, dd or something
 2. Open **boot.config** on the first FAT-partition with an editor
 3. Uncomment the **box=** line for your box.
-4. If you want to boot from sdcard: uncomment the line **root=/dev/mmcblk0p2**
 5. Save the config file. 
 
 ## Start
@@ -78,6 +79,7 @@ In most cases:
 ### Exceptions
 **A95X F2:** bluetooth (MT7668) will not work, wifi does work  
 **X96 Max Plus Q2:** Wifi (qca6174) is slow/lagging for small transfers  
+**X96 Max Plus 2101W:** Wifi does not work (aml_w1) 
 **X96 Mini** Wifi does not work  
 **X96 X4:** HDMI does not really work, but with the use of simpleframebuffer there is a console.  
 **Tanxix W2:** HDMI does not work, but it is usable as a headless server, wifi does not work  
