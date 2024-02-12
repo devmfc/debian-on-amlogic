@@ -114,6 +114,6 @@ I publish them here in case someone wants to do the same and is looking for a ba
 
 ## Sources
 Sorry no sources at this moment. Not that I don't want to share, but because they are messy and I don't have the time to clean them up. However, most of the sources for the images are just Bash scripts, so feel free to reuse them. Also the bootscripts, box configs and DTB's are all there. When I have some time to spare I will try to upload the sources. 
-- The kernel is just based on the mainline kernel source (kernel.org), only SC2 and S4 support needs some extra patches.
+- The kernel is based on the mainline kernel source (kernel.org), only SC2 and S4 support needs some extra patches.
 - Some work for S4 is already in my Linux repository
 - Wifi MT7688 modifications for mainline Linux and for G12a boxes are in my repo
