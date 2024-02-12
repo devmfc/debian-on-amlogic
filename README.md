@@ -103,8 +103,8 @@ In most cases:
 ## What is the purpose of these images
 These images are the images I use myself for various projects and small server tasks like email, pi-hole, nextcloud, NAS, webserver etc.  
 For these tasks I want to run a mainline LTS kernel (so not an older and sometimes buggy/insecure vendor kernel). The downside of this is that not all hardware is fully supported. If you are looking for better hardware support, take a look at the Coreelec images or Khadas Fenix images. I want a standard and clean Debian or Ubuntu distribution without unknown/untrusted APT repositories.  
-It is just a hobby to tinker with some of these cheap Android TVBoxes for fun when I have some time to spare, not for any serious purpose.
-I just publish them here in case someone wants to do the same and is looking for a basic image. You might get lucky and it just boots on your TVBox as well. If not... sorry, don't expect support from me. And how much I would like to do so, I simply don't have the time to be someones Linux teacher... 
+It is just a hobby to tinker with some of these cheap Android TVBoxes for fun when I have some time to spare, not for any serious purpose.  
+I publish them here in case someone wants to do the same and is looking for a basic image. You might get lucky and it just boots on your TVBox as well. If not... sorry, don't expect support from me. And how much I would like to do so, I simply don't have the time to be someones Linux teacher... 
 
 ## What are these images NOT
 - Not suitable for media players like Kodi (Use Coreelec or Libreelec for that)
