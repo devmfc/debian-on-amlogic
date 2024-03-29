@@ -2,12 +2,13 @@
 Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chain loaded u-boot.
 
 ## Current images:
-- Debian Bookworm (v12) with Linux kernel 6.6.16
-- Ubuntu Mantic (v23.10)  with Linux kernel 6.6.16
+- Debian Bookworm (v12) with Linux kernel 6.6.23
+- Ubuntu Mantic (v23.10)  with Linux kernel 6.6.23
 
 ## New boxes since this release:
-- X96 Max (S905X2 1000M)
-- H96 Max W2 (S905W2, thus **experimental**)
+- Tanix TX3 100M ethernet version (S905X3)
+- T95 W2 (S905Y4 version **EXPERIMENTAL** SoC, no WIFI and only HDMI console support)
+- generic S905Y4 box config (**EXPERIMENTAL** SoC)
  
 ## Tested TV-boxes with box specific DTB (bluetooth / leds / vfd display)
 - A95X (S905)
@@ -19,7 +20,9 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 - HK1 X3 (S905X3, 1000M ethernet)
 - KM8 Pro (S912, 1000M ethernet)
 - Tanix TX3 (S905X3, 1000M ethernet)
+- Tanix TX3 (S905X3, 100M ethernet)
 - Tanix W2 (**EXPERIMENTAL** S905W2, 100M ethernet)
+- T95 W2 (S905Y4 version **EXPERIMENTAL** SoC, 100M ethernet)
 - TOX1 (S905X3, 1000M ethernet)
 - Vontar X4 (**EXPERIMENTAL** S905X4, 1000M ethernet)
 - X88 Pro X3 (S905X3, 1000M ethernet)
@@ -46,6 +49,7 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 - S922X (Meson G12B), 1000M ethernet
 - Experimental: S905X4 (Meson SC2)
 - Experimental: S905W2 (Meson S4)
+- Experimental: S905Y4 (Meson S4)
 
 ## Install
 1. Burn the image to a USB flash disk (or sdcard, but USB is more reliable) with some image burner like Balena Etcher, Win32Diskimager, dd or something
