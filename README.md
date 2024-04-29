@@ -79,7 +79,8 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 ## Update kernel for existing images
 You can update an existing installation with a kernel of a newer release:  
 1. copy the linux-image-xyz.deb to a directory on your box (eg. with scp, samba, usb flash disk).
-2. in that directory run `dpkg -i linux-image-xyz.deb`  
+2. in that directory run `dpkg -i linux-image-xyz.deb`
+
 Try the new kernel on a removable usb disk or sd-card first, so you won't 'brick' your box when the kernel does not work!
 
 ## What does work
