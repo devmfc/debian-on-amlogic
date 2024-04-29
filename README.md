@@ -6,7 +6,7 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 - Ubuntu Noble Numbat (v24.04)  with Linux kernel 6.6.29
 
 ## New boxes since this release:
-- Vontar X2 (**EXPERIMENTAL** S905W2, 100M ethernet)
+- Vontar X2 (**EXPERIMENTAL** S905W2, 100M ethernet) (Thanks @Adney)
 
 ## Modified box support since this release:
 - T95 W2: WIFI does now work
