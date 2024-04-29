@@ -2,13 +2,15 @@
 Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chain loaded u-boot.
 
 ## Current images:
-- Debian Bookworm (v12) with Linux kernel 6.6.23
-- Ubuntu Mantic (v23.10)  with Linux kernel 6.6.23
+- Debian Bookworm (v12) with Linux kernel 6.6.29
+- Ubuntu Noble Numbat (v24.04)  with Linux kernel 6.6.29
 
 ## New boxes since this release:
-- Tanix TX3 100M ethernet version (S905X3)
-- T95 W2 (S905Y4 version **EXPERIMENTAL** SoC, no WIFI and only HDMI console support)
-- generic S905Y4 box config (**EXPERIMENTAL** SoC)
+- Vontar X2 (**EXPERIMENTAL** S905W2, 100M ethernet)
+
+## Modified box support since this release:
+- T95 W2: WIFI does now work
+- X96 Max Plus Q2: Wifi qca6174 now works by disabling power save.
  
 ## Tested TV-boxes with box specific DTB (bluetooth / leds / vfd display)
 - A95X (S905)
@@ -74,6 +76,12 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 - The boot script does not use a "chain loaded" bootloader
 - The boot script will NOT install 'multiboot' or modify the bootloader environment with its boot procedure. This in contrary of most other images for Amlogic boxes. This means that it is almost impossible to damage/brick your device while trying to boot with this image. This also means that you have to push the reset button every time you want to boot with this image. However, you can install 'multiboot' by running **./aml-multiboot-setup.sh** in the */root* directory when booted into Linux. That script WILL change your bootloader's environment, so there is a chance (very small, but still) this can 'brick' your box. If you don't have the tools, images or knowledge to unbrick your box: be warned and don't blame me or ask me for help. 
 
+## Update kernel for existing images
+You can update an existing installation with a kernel of a newer release:
+1. copy the linux-image-xyz.deb to a directory on your box (eg. with scp, samba, usb flash disk).
+2. in that directory run `dpkg -i linux-image-xyz.deb`
+Try the new kernel via a removable usb disk or sd-card first, so you won't 'brick' your box when the kernel does not work!
+
 ## What does work
 In most cases:
 - HDMI
@@ -88,12 +96,12 @@ In most cases:
 
 ### Exceptions
 **A95X F2:** bluetooth (MT7668) will not work, wifi does work  
-**X96 Max Plus Q2:** Wifi (qca6174) is slow/lagging for small transfers  
 **X96 Max Plus 2101W:** Wifi does not work (aml_w1) 
 **X96 Mini** Wifi does not work  
 **X96 X4:** HDMI does not really work, but with the use of simpleframebuffer there is a console.  
 **Tanxix W2:** HDMI does not really work, but with the use of simpleframebuffer there is a console, wifi does not work  
 **H96 Max W2:** HDMI does not really work, but with the use of simpleframebuffer there is a console, wifi does not work  
+**T95 W2:** HDMI does not really work, but with the use of simpleframebuffer there is a console
 
 
 ### Not tested but will probably work
