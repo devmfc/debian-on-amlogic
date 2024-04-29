@@ -77,9 +77,9 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 - The boot script will NOT install 'multiboot' or modify the bootloader environment with its boot procedure. This in contrary of most other images for Amlogic boxes. This means that it is almost impossible to damage/brick your device while trying to boot with this image. This also means that you have to push the reset button every time you want to boot with this image. However, you can install 'multiboot' by running **./aml-multiboot-setup.sh** in the */root* directory when booted into Linux. That script WILL change your bootloader's environment, so there is a chance (very small, but still) this can 'brick' your box. If you don't have the tools, images or knowledge to unbrick your box: be warned and don't blame me or ask me for help. 
 
 ## Update kernel for existing images
-You can update an existing installation with a kernel of a newer release:
+You can update an existing installation with a kernel of a newer release:  
 1. copy the linux-image-xyz.deb to a directory on your box (eg. with scp, samba, usb flash disk).
-2. in that directory run `dpkg -i linux-image-xyz.deb`
+2. in that directory run `dpkg -i linux-image-xyz.deb`  
 Try the new kernel on a removable usb disk or sd-card first, so you won't 'brick' your box when the kernel does not work!
 
 ## What does work
