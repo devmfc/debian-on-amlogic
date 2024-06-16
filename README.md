@@ -2,15 +2,11 @@
 Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chain loaded u-boot.
 
 ## Current images:
-- Debian Bookworm (v12) with Linux kernel 6.6.29
-- Ubuntu Noble Numbat (v24.04)  with Linux kernel 6.6.29
+- Debian Bookworm (v12) with Linux kernel 6.6.34
+- Ubuntu Noble Numbat (v24.04)  with Linux kernel 6.6.34
 
 ## New boxes since this release:
-- Vontar X2 (**EXPERIMENTAL** S905W2, 100M ethernet) (Thanks @Adney)
-
-## Modified box support since this release:
-- T95 W2: WIFI does now work
-- X96 Max Plus Q2: Wifi qca6174 now works by disabling power save.
+- Tanix TX3 Mini+ (**EXPERIMENTAL** S905W2, same as Tanix W2)
  
 ## Tested TV-boxes with box specific DTB (bluetooth / leds / vfd display)
 - A95X (S905)
@@ -23,9 +19,11 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 - KM8 Pro (S912, 1000M ethernet)
 - Tanix TX3 (S905X3, 1000M ethernet)
 - Tanix TX3 (S905X3, 100M ethernet)
+- Tanix TX3 Mini Plus (**EXPERIMENTAL** S905W2, 100M ethernet)
 - Tanix W2 (**EXPERIMENTAL** S905W2, 100M ethernet)
 - T95 W2 (S905Y4 version **EXPERIMENTAL** SoC, 100M ethernet)
 - TOX1 (S905X3, 1000M ethernet)
+- Vontar X2 (**EXPERIMENTAL** S905W2, 100M ethernet)
 - Vontar X4 (**EXPERIMENTAL** S905X4, 1000M ethernet)
 - X88 Pro X3 (S905X3, 1000M ethernet)
 - X96 (S905X, 100M ethernet))
@@ -96,14 +94,12 @@ In most cases:
 - VFD Led Display
 
 ### Exceptions
-**A95X F2:** bluetooth (MT7668) will not work, wifi does work  
-**X96 Max Plus 2101W:** Wifi does not work (aml_w1) 
+**A95X F2:** bluetooth (MT7668) will not work, wifi does work   
+**X96 Max Plus 2101W:** Wifi does not work (aml_w1)  
 **X96 Mini** Wifi does not work  
-**X96 X4:** HDMI does not really work, but with the use of simpleframebuffer there is a console.  
-**Tanxix W2:** HDMI does not really work, but with the use of simpleframebuffer there is a console, wifi does not work  
-**H96 Max W2:** HDMI does not really work, but with the use of simpleframebuffer there is a console, wifi does not work  
-**T95 W2:** HDMI does not really work, but with the use of simpleframebuffer there is a console
-
+**All S905X4 boxes:** HDMI does not really work, but with the use of simpleframebuffer there is a console.  
+**All S905W2 boxes:** HDMI does not really work, but with the use of simpleframebuffer there is a console.
+**Most S905W2 boxes:** WiFi does not work.
 
 ### Not tested but will probably work
 - cec
@@ -132,3 +128,6 @@ I publish them here in case someone wants to do the same and is looking for a ba
   
 Other sources and build scripts are not available at this moment. Not that I don't want to share, but because they are messy and I don't have the time to clean them up. However, most of the sources for the images are just Bash scripts, so feel free to reuse them. Also the bootscripts, box configs and DTB's are all there.  
 When I have some time to spare I will try to upload the sources. 
+
+## Give me a star when these images work for you
+If you use my images, let me know by giving me a star for this repo! Thanks!
