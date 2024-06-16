@@ -130,4 +130,4 @@ Other sources and build scripts are not available at this moment. Not that I don
 When I have some time to spare I will try to upload the sources. 
 
 ## Give me a star when these images work for you
-If you use my images, let me know by giving me a star for this repo! Thanks!
+If you find these images useful, let me know by giving me a star for this repo! Thanks!
