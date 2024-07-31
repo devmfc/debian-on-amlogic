@@ -1,3 +1,5 @@
+Don't merge this commit
+
 # Debian Linux image for Android TV boxes with Amlogic SOC's.
 Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chain loaded u-boot.
 
