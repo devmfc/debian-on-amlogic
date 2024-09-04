@@ -2,11 +2,8 @@
 Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chain loaded u-boot.
 
 ## Current images:
-- Debian Bookworm (v12) with Linux kernel 6.6.41
-- Ubuntu Noble Numbat (v24.04)  with Linux kernel 6.6.41
-
-## New boxes since this release:
-- X96 Mini W2 (**EXPERIMENTAL** S905W2)
+- Debian Bookworm (v12) with Linux kernel 6.6.49
+- Ubuntu Noble Numbat (v24.04)  with Linux kernel 6.6.49
  
 ## Tested TV-boxes with box specific DTB (bluetooth / leds / vfd display)
 - A95X (S905)
