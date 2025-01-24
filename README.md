@@ -2,26 +2,26 @@
 Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chain loaded u-boot.
 
 ## Current images:
-- Debian Bookworm (v12) with Linux kernel 6.12.6
-- Ubuntu Oracular Oriole (v24.10)  with Linux kernel 6.12.6
+- Debian Bookworm (v12) with Linux kernel 6.12.11
+- Ubuntu Oracular Oriole (v24.10)  with Linux kernel 6.12.11
  
 ## Tested TV-boxes with box specific DTB (bluetooth / leds / vfd display)
 - A95X (S905)
 - A95X F2 (S905X2)
 - Beelink GT King (S922X)
-- H96 Max W2 (**EXPERIMENTAL** S905W2, 100M ethernet)
+- H96 Max W2 (S905W2, 100M ethernet)
 - H96 Max X3 (S905X3, 1000M ethernet)
 - H96 Pro Plus (S912, 1000M ethernet)
 - HK1 X3 (S905X3, 1000M ethernet)
 - KM8 Pro (S912, 1000M ethernet)
 - Tanix TX3 (S905X3, 1000M ethernet)
 - Tanix TX3 (S905X3, 100M ethernet)
-- Tanix TX3 Mini Plus (**EXPERIMENTAL** S905W2, 100M ethernet)
-- Tanix W2 (**EXPERIMENTAL** S905W2, 100M ethernet)
-- T95 W2 (S905Y4 version **EXPERIMENTAL** SoC, 100M ethernet)
+- Tanix TX3 Mini Plus (S905W2, 100M ethernet)
+- Tanix W2 (S905W2, 100M ethernet)
+- T95 W2 (S905Y4 version, 100M ethernet)
 - TOX1 (S905X3, 1000M ethernet)
-- Vontar X2 (**EXPERIMENTAL** S905W2, 100M ethernet)
-- Vontar X4 (**EXPERIMENTAL** S905X4, 1000M ethernet)
+- Vontar X2 (S905W2, 100M ethernet)
+- Vontar X4 (S905X4, 1000M ethernet)
 - X88 Pro X3 (S905X3, 1000M ethernet)
 - X96 (S905X, 100M ethernet))
 - X96 Air A100 (S905X3, 100M ethernet)
@@ -33,21 +33,22 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 - X96 Max Plus 2T (S905X3, 1000M ethernet)
 - X96 Max Plus Q2 (S905X3, 1000M ethernet)
 - X96 Mini (S905W, 100M ethernet)
-- X96 Mini W2 (**EXPERIMENTAL** S905W2, 100M ethernet)
-- x96 X4 (**EXPERIMENTAL** S905X4, 1000M ethernet)
+- X96 Mini W2 (S905W2, 100M ethernet)
+- x96 X4 (S905X4, 1000M ethernet)
 
 
 ## Current supported SOC's via generic DTB's (device trees)
 - S905 (Meson GXBB)
+- S905L-3 (Meson GXLX2, NO HDMI output!)
 - S905W (Meson GXL)
+- S905W2 (Meson S4)
 - S905X (Meson GXL)
 - S905X2 (Meson G12A), 100M and 1000M ethernet
 - S905X3 (Meson SM1), 100M and 1000M ethernet
+- S905X4 (Meson SC2, 1000M ethernet only!)
+- S905Y4 (Meson S4)
 - S912 (Meson GXM), 1000M ethernet
 - S922X (Meson G12B), 1000M ethernet
-- Experimental: S905X4 (Meson SC2)
-- Experimental: S905W2 (Meson S4)
-- Experimental: S905Y4 (Meson S4)
 
 ## Install
 1. Burn the image to a USB flash disk (or sdcard, but USB is more reliable) with some image burner like Balena Etcher, Win32Diskimager, dd or something
@@ -95,8 +96,8 @@ In most cases:
 **A95X F2:** bluetooth (MT7668) will not work, wifi does work   
 **X96 Max Plus 2101W:** Wifi does not work (aml_w1)  
 **X96 Mini** Wifi does not work  
-**All S905X4 boxes:** HDMI does not really work, but with the use of simpleframebuffer there is a console.  
-**All S905W2 boxes:** HDMI does not really work, but with the use of simpleframebuffer there is a console.
+**All S905X4 boxes:** No sound.  
+**All S905W2 boxes:** No sound.
 **Most S905W2 boxes:** WiFi does not work.
 
 ### Not tested but will probably work
@@ -116,12 +117,12 @@ I publish them here in case someone wants to do the same and is looking for a ba
 ## What are these images NOT
 - Not suitable for media players like Kodi (Use Coreelec or Libreelec for that)
 - Athough once in a while I test Linux desktop installation and there is a simple install script, these TVBoxes are (without hardware accelaration present in vendor kernels) IMHO waay to slow for desktop usage.
-- This is not an attempt to become some kind of Linux distribution. it is just Debian / Ubuntu. So no support other than the gazillion support sources for Debian / Ubuntu already on the internet.
+- This is not an attempt to become some kind of Linux distribution. It is just Debian / Ubuntu. So no support other than the gazillion support sources for Debian / Ubuntu already on the internet.
 - They are NOT Armbian and are NOT Armbian based
 
 ## Sources
 - The kernel is based on the mainline kernel source (kernel.org), only SC2 and S4 support needs some extra patches.
-- Some work for S4 is already in my Linux repository
+- Some work for S4 and SC2 is already in my Linux repository
 - Wifi MT7688 modifications for mainline Linux and for G12a boxes are in my repo
   
 Other sources and build scripts are not available at this moment. Not that I don't want to share, but because they are messy and I don't have the time to clean them up. However, most of the sources for the images are just Bash scripts, so feel free to reuse them. Also the bootscripts, box configs and DTB's are all there.  
