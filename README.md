@@ -2,8 +2,8 @@
 Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chain loaded u-boot.
 
 ## Current images:
-- Debian Bookworm (v12) with Linux kernel 6.12.11
-- Ubuntu Oracular Oriole (v24.10)  with Linux kernel 6.12.11
+- Debian Bookworm (v12) with Linux kernel 6.12.17
+- Ubuntu Oracular Oriole (v24.10)  with Linux kernel 6.12.17
  
 ## Tested TV-boxes with box specific DTB (bluetooth / leds / vfd display)
 - A95X (S905)
@@ -31,6 +31,7 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 - X96 Max Plus 2 (S905X3, 1000M ethernet)
 - X96 Max Plus 2101W (S905X3, 1000M ethernet)
 - X96 Max Plus 2T (S905X3, 1000M ethernet)
+- X96 Max Plus Ultra (S905X4, 100M ethernet)
 - X96 Max Plus Q2 (S905X3, 1000M ethernet)
 - X96 Mini (S905W, 100M ethernet)
 - X96 Mini W2 (S905W2, 100M ethernet)
@@ -45,7 +46,7 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 - S905X (Meson GXL)
 - S905X2 (Meson G12A), 100M and 1000M ethernet
 - S905X3 (Meson SM1), 100M and 1000M ethernet
-- S905X4 (Meson SC2, 1000M ethernet only!)
+- S905X4 (Meson SC2, 100M and 1000M ethernet
 - S905Y4 (Meson S4)
 - S912 (Meson GXM), 1000M ethernet
 - S922X (Meson G12B), 1000M ethernet
@@ -95,6 +96,7 @@ In most cases:
 ### Exceptions
 **A95X F2:** bluetooth (MT7668) will not work, wifi does work   
 **X96 Max Plus 2101W:** Wifi does not work (aml_w1)  
+**X96 Max Plus Ultra:** Wifi does not work (aml_w1)  
 **X96 Mini** Wifi does not work  
 **All S905X4 boxes:** No sound.  
 **All S905W2 boxes:** No sound.
