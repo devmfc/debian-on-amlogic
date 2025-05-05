@@ -2,8 +2,9 @@
 Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chain loaded u-boot.
 
 ## Current images:
-- Debian Bookworm (v12) with Linux kernel 6.12.17
-- Ubuntu Oracular Oriole (v24.10)  with Linux kernel 6.12.17
+- Debian Bookworm (v12) with Linux kernel 6.12.26
+- Ubuntu Oracular Oriole (v24.10) with Linux kernel 6.12.26
+- Ubuntu Plucky Puffin (v25.04)  with Linux kernel 6.12.26
 
 ## New boxes since this release:
 - X96 Max+ Ultra (S905X4, 100M ethernet)
