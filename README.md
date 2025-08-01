@@ -64,6 +64,14 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 6. hold the reset/update button for about 7 seconds (longer does not hurt)
 7. it should now boot to Debian / Ubuntu
 
+alternative approach for boxes with rooted android (in case of problem with reset/update button)
+
+3. put the disk in the box
+4. connect with android box via adb ```adb connect <box-ip>```
+5. in the box shell ```adb shell```  switch to root ```su root``` and run command ```reboot update```
+6. power on the box
+7. it will now boot to Debian / Ubuntu each time when the disk will be put in the box
+
 ## login
 1. Login via console or SSH (at first boot it can take a bit more time before SSH is available, because all encryption keys are regenerated)
 1. you can login with user **root**, password: **tvbox**
