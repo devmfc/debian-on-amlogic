@@ -2,8 +2,8 @@
 Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chain loaded u-boot.
 
 ## Current images:
-- Debian Trixie (preview v13) with Linux kernel 6.12.37
-- Ubuntu Plucky Puffin (v25.04) with Linux kernel 6.12.37
+- Debian Trixie (v13) with Linux kernel 6.12.41
+- Ubuntu Plucky Puffin (v25.04) with Linux kernel 6.12.41
  
 ## Tested TV-boxes with box specific DTB (bluetooth / leds / vfd display)
 - A95X (S905)
@@ -46,7 +46,7 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 - S905X (Meson GXL)
 - S905X2 (Meson G12A), 100M and 1000M ethernet
 - S905X3 (Meson SM1), 100M and 1000M ethernet
-- S905X4 (Meson SC2, 100M and 1000M ethernet
+- S905X4 (Meson SC2), 100M and 1000M ethernet
 - S905Y4 (Meson S4)
 - S912 (Meson GXM), 1000M ethernet
 - S922X (Meson G12B), 1000M ethernet
