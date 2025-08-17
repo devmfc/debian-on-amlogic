@@ -19,6 +19,7 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 - Tanix TX3 Mini Plus (S905W2, 100M ethernet)
 - Tanix W2 (S905W2, 100M ethernet)
 - T95 W2 (S905Y4 version, 100M ethernet)
+- T95 MAX PLUS (S905X3, 1000M ethernet)
 - TOX1 (S905X3, 1000M ethernet)
 - Vontar X2 (S905W2, 100M ethernet)
 - Vontar X4 (S905X4, 1000M ethernet)
