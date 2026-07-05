@@ -2,8 +2,8 @@
 Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainline Linux LTS kernel. Boots the kernel with vendor u-boot, so without the use of a chain loaded u-boot.
 
 ## Current images:
-- Debian Trixie (v13) with Linux kernel 6.18.34
-- Ubuntu Resolute Raccoon (v26.04 LTS) with Linux kernel 6.18.34
+- Debian Trixie (v13) with Linux kernel 6.18.38
+- Ubuntu Resolute Raccoon (v26.04 LTS) with Linux kernel 6.18.38
  
 ## Tested TV-boxes with box specific DTB (bluetooth / leds / vfd display)
 - A95X (S905)
