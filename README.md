@@ -9,6 +9,7 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 - A95X (S905)
 - A95X F2 (S905X2)
 - Beelink GT King (S922X)
+- FRAMEN TV Box 4K (S905X3, 1000M ethernet)
 - H96 Max W2 (S905W2, 100M ethernet)
 - H96 Max X3 (S905X3, 1000M ethernet)
 - H96 Pro Plus (S912, 1000M ethernet)
