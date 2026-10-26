@@ -38,7 +38,7 @@ Minimal Debian and Ubuntu Linux images for Amlogic based OTT TV-boxes with mainl
 - X96 Max Plus Q2 (S905X3, 1000M ethernet)
 - X96 Mini (S905W, 100M ethernet)
 - X96 Mini W2 (S905W2, 100M ethernet)
-- x96 X4 (S905X4, 1000M ethernet)
+- X96 X4 (S905X4, 1000M ethernet)
 
 
 ## Current supported SOC's via generic DTB's (device trees)
