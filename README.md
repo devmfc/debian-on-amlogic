@@ -92,6 +92,9 @@ You can update an existing installation with a kernel of a newer release:
 
 Try the new kernel on a removable usb disk or sd-card first, so you won't 'brick' your box when the kernel does not work!
 
+## X96 X4 Pro1: LED strip control
+The addressable LED strip in the **X96 X4 Pro1** (S905X4) can be controlled from Linux. See the **[x96x4-led](x96x4-led/README.md)** directory: it contains a patched DTB (muxes UARTA to the strip pads D8/D9), a `led` control script with 12 modes, and a one-shot installer.
+
 ## What does work
 In most cases:
 - HDMI
