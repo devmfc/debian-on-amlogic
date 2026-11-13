@@ -1,0 +1,121 @@
+#!/bin/sh
+# led_seq - play custom light sequences for the X96 X4 Pro1 LED strip.
+#
+# A sequence file is a list of lines:
+#
+#   <duration> <mode> [raw-hex]
+#
+# e.g.:
+#   3 rainbow        # rainbow for 3 seconds
+#   0.5 off          # dark for half a second
+#   2 raw 14d000     # arbitrary payload (see 'led list')
+#
+# - duration is in seconds, decimals allowed (e.g. 0.5)
+# - mode is any mode of the 'led' script; "raw" sends an extra hex payload
+# - blank lines and lines starting with '#' are ignored
+#
+# usage: led_seq [-l] <sequence-file | preset>
+#   -l  loop forever (Ctrl-C stops). Presets are designed to be used with -l.
+#
+# Presets installed by install.sh (in /usr/local/share/x96x4-led/sequences):
+#   party, night, alarm
+#
+# The LED_PORT environment variable is passed through to 'led'.
+
+LED=${LED:-led}
+SEQ_DIR=${LED_SEQ_DIR:-/usr/local/share/x96x4-led/sequences}
+
+usage() {
+    cat <<'EOF'
+usage: led_seq [-l] <sequence-file | preset>
+
+plays a light sequence on the X96 X4 Pro1 LED strip.
+
+options:
+  -l        loop forever (Ctrl-C stops)
+
+arguments:
+  file      path to a sequence file (absolute or relative)
+  preset    one of the installed presets (party, night, alarm),
+            looked up in /usr/local/share/x96x4-led/sequences/
+
+sequence file format, one step per line:
+  <seconds> <mode> [hex]     mode = any 'led' mode; use "raw <hex>" for
+                             arbitrary payloads (checksum computed by led)
+  # comment                  blank lines and '#' lines are ignored
+
+examples:
+  led_seq -l party            # loop the party preset
+  led_seq my.seq              # play a file once
+  LED_PORT=/dev/ttyS6 led_seq -l /root/sequences/night.seq
+EOF
+}
+
+[ $# -ge 1 ] || { usage >&2; exit 2; }
+
+LOOP=0
+if [ "$1" = "-l" ]; then
+    LOOP=1
+    shift
+fi
+
+[ $# -eq 1 ] || { usage >&2; exit 2; }
+
+# Resolve the argument to a file: absolute/relative paths as-is,
+# bare names are looked up as installed presets.
+case $1 in
+    /*|*.seq|*/*)
+        FILE=$1
+        ;;
+    *)
+        FILE="$SEQ_DIR/$1.seq"
+        ;;
+esac
+
+if [ ! -r "$FILE" ]; then
+    echo "error: sequence file not found: $FILE" >&2
+    exit 1
+fi
+
+# Play one pass over the sequence file. Returns 1 on a malformed line.
+play_file() {
+    f=$1
+    while IFS= read -r line || [ -n "$line" ]; do
+        # trim surrounding whitespace
+        line=$(printf '%s\n' "$line" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+        case $line in
+            ''|\#*) continue ;;
+        esac
+
+        # split into words (clobbers this function's positional params only)
+        set -- $line
+        [ $# -ge 2 ] || { echo "error: bad line '$line' (need: <seconds> <mode>)" >&2; return 1; }
+        dur=$1
+        mode=$2
+
+        # duration must be a plain number, at most one dot
+        case $dur in
+            ''|.|.*|*.*.*|*[!0-9.]*)
+                echo "error: bad duration '$dur' in line '$line'" >&2
+                return 1 ;;
+        esac
+
+        if [ "$mode" = raw ]; then
+            [ $# -ge 3 ] || { echo "error: 'raw' needs a hex payload: '$line'" >&2; return 1; }
+            $LED raw "$3" || return 1
+        else
+            $LED "$mode" || return 1
+        fi
+
+        sleep "$dur"
+    done < "$f"
+}
+
+if [ "$LOOP" = 1 ]; then
+    trap 'exit 0' INT TERM
+    while :; do
+        play_file "$FILE" || exit 1
+    done
+else
+    play_file "$FILE"
+fi

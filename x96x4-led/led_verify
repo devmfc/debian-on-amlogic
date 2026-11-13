@@ -1,0 +1,44 @@
+#!/bin/bash
+# led_verify.sh - send every LED mode, read back the 7-byte ACK echo.
+PORT=/dev/ttyS6
+stty -F $PORT 9600 cs8 -cstopb -parenb raw
+
+send_raw() {
+    # $1: even-length hex string -> write bytes to port
+    local h=$1 i b esc=""
+    for ((i=0; i<${#h}; i+=2)); do
+        printf -v b '%d' "0x${h:$i:2}"
+        esc+="$(printf '\\%o' "$b")"
+    done
+    printf "$esc" > "$PORT"
+}
+
+test_mode() {
+    local name=$1 payload=$2
+    local p1=${payload:0:2} p2=${payload:2:2} p3=${payload:4:2}
+    local chk=$(( (0x$p1 + 0x$p2 + 0x$p3 + 0x45) % 256 ))
+    local frame="23041e${payload}$(printf '%02x' $chk)"
+    send_raw "$frame"
+    sleep 0.4
+    local ack
+    ack=$(timeout 2 dd if=$PORT bs=7 count=1 2>/dev/null | od -An -tx1 | tr -d ' \n')
+    printf '%-9s frame=%s  ack=%s\n' "$name" "$frame" "${ack:-NONE}"
+}
+
+test_mode off      140000
+test_mode red      141000
+test_mode green    141011
+test_mode blue     141001
+test_mode color1   142800
+test_mode color2   143000
+test_mode flow     234800
+test_mode runwater 23b001
+test_mode fade     23f000
+test_mode auto     23e000
+test_mode rainbow  14d000
+test_mode flash    25c800
+
+# leave the strip in a pleasant default state (auto = 23e000, chk 0x48)
+sleep 0.4
+send_raw "23041e23e00048"
+echo "left in: auto"
