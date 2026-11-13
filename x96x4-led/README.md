@@ -11,6 +11,8 @@ drive it from Linux:
 |---|---|
 | `led` | control script (12 modes + raw frames), installed to `/usr/local/bin/led` |
 | `led_verify` | diagnostic that sweeps all 12 modes, installed to `/usr/local/bin/led_verify` |
+| `led_seq` | custom sequence player, installed to `/usr/local/bin/led_seq` |
+| `sequences/` | preset sequences (party, night, alarm), installed to `/usr/local/share/x96x4-led/sequences/` |
 | `meson-sc2-x96x4.dtb` | patched device tree: muxes UARTA to the strip pads (D8/D9) |
 | `meson-sc2-x96x4.dts` | source of the DTB (decompiled stock DTB + pinctrl patch) |
 | `install.sh` | one-shot installer, run on the box |
@@ -80,6 +82,45 @@ ssh root@<box-ip> 'led red'
 or wrap it in your favourite alias/script. The tty port is auto-detected from
 the kernel log on every invocation; override with `LED_PORT=/dev/ttySN` if
 needed.
+
+## Custom light sequences
+
+The stock app only knows the 12 fixed modes, but you can build your own
+sequences by scripting them from the host: a sequence file lists timed steps,
+and `led_seq` plays them back over the same UART protocol.
+
+```sh
+led_seq [-l] <sequence-file | preset>
+```
+
+Sequence file format — one step per line, `<seconds> <mode>` (decimals
+allowed), `#` for comments:
+
+```
+3 rainbow        # rainbow for 3 seconds
+0.5 off          # dark for half a second
+2 raw 14d000     # arbitrary payload (checksum computed by led)
+```
+
+Any mode of the `led` script can be used, so a sequence is any combination of
+the 12 stock modes with your own timing — blinks, chases between colors,
+slow ambient cycles, etc.
+
+Presets installed by `install.sh`:
+
+| preset | effect |
+|---|---|
+| `party` | fast cycle through all colors and patterns |
+| `night` | slow, calm fade/flow/rainbow (15–20 s steps) |
+| `alarm` | fast red/green/blue blink with dark gaps |
+
+```sh
+led_seq -l party     # loop a preset forever (Ctrl-C stops)
+led_seq my.seq       # play your own file once
+```
+
+Write your own in any editor and point `led_seq` at it, or drop `.seq` files
+into `/usr/local/share/x96x4-led/sequences/` to make them available by name.
 
 ## Troubleshooting
 

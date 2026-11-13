@@ -8,7 +8,8 @@
 # What it does:
 #   1. backs up the stock DTB (once, to <dtb>.orig)
 #   2. installs the patched DTB that muxes UARTA to pads D8/D9 (the strip)
-#   3. installs /usr/local/bin/led and /usr/local/bin/led_verify
+#   3. installs /usr/local/bin/led, led_verify and led_seq
+#   4. installs sequence presets (party, night, alarm)
 #
 # A reboot is required for the new DTB to take effect.
 
@@ -38,12 +39,19 @@ echo "installed patched DTB: $DTB"
 # 3. install the control scripts
 install -m 755 "$DIR/led" /usr/local/bin/led
 install -m 755 "$DIR/led_verify" /usr/local/bin/led_verify
-echo "installed /usr/local/bin/led and /usr/local/bin/led_verify"
+install -m 755 "$DIR/led_seq" /usr/local/bin/led_seq
+echo "installed /usr/local/bin/led, led_verify and led_seq"
+
+# 4. install the sequence presets
+install -d -m 755 /usr/local/share/x96x4-led/sequences
+cp -p "$DIR"/sequences/*.seq /usr/local/share/x96x4-led/sequences/
+echo "installed sequence presets to /usr/local/share/x96x4-led/sequences/"
 
 echo
 echo "== done. Reboot the box, then test:"
 echo "   led red          # should turn the strip solid red"
 echo "   led_verify       # sweeps all 12 modes"
+echo "   led_seq -l party # loops a custom sequence (Ctrl-C stops)"
 echo
 echo "If the strip does not respond after a reboot, power-cycle it"
 echo "(unplug/replug the box): its controller can hang and needs a reset."

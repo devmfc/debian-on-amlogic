@@ -1,0 +1,5 @@
+# night - slow, calm patterns for the evening. Run with: led_seq -l night
+15 fade
+15 flow
+20 rainbow
+20 runwater
