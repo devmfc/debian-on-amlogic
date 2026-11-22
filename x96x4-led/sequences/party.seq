@@ -1,0 +1,9 @@
+# party - energetic color and pattern cycle. Run with: led_seq -l party
+1 red
+1 green
+1 blue
+2 rainbow
+2 flash
+1 runwater
+1 flow
+3 auto

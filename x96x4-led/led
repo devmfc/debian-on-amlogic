@@ -1,0 +1,146 @@
+#!/bin/sh
+# led - control the LED strip PCB on the X96 X4 Pro1 (S905X4 / Meson SC2)
+#
+# Works with devmfc's Debian/Ubuntu mainline images. The stock image does not
+# mux UARTA to the strip pads, so you must also install the patched DTB from
+# this directory (see install.sh / README.md).
+#
+# Protocol (reverse-engineered from the stock "LED Control" app):
+#   UART: UARTA @ 9600 baud, 8N1  (MMIO fe078000; ttyS number varies per boot)
+#   Frame (7 bytes): 23 04 1E | P1 P2 P3 | CHK
+#   CHK = (P1 + P2 + P3 + 0x45) mod 256
+#   One-way protocol: the PCB does NOT echo/ACK, RX stays silent.
+
+HEADER=23041e   # 3-byte frame header, prepended to every payload
+
+# --- port selection -------------------------------------------------------
+# The ttyS number assigned to UARTA (fe078000) can change between boots.
+# Resolution order: $LED_PORT override > dmesg auto-detect > /dev/ttyS6.
+detect_port() {
+    line=$(dmesg 2>/dev/null | grep 'fe078000.serial' | tail -n1)
+    [ -n "$line" ] || return 1
+    tty=$(printf '%s\n' "$line" | sed -n 's/.*ttyS\([0-9]\+\).*/ttyS\1/p')
+    [ -n "$tty" ] || return 1
+    printf '/dev/%s\n' "$tty"
+}
+
+if [ -n "${LED_PORT:-}" ]; then
+    PORT=$LED_PORT
+elif p=$(detect_port); then
+    PORT=$p
+else
+    PORT=/dev/ttyS6
+fi
+
+usage() {
+    cat <<'EOF'
+usage: led <mode> | led raw <hex> | led list | led port
+
+modes:
+  off       turn off the light
+  auto      fully automatic
+  flash     color flashes automatically
+  rainbow   rainbow, source to end
+  fade      fade in and fade out
+  runwater  running water, white and red
+  flow      flow display automatic
+  color1    fixed display color 1
+  color2    fixed display color 2
+  red       static red
+  green     static green
+  blue      static blue
+
+raw <hex>: 6 hex chars = 3-byte payload (checksum auto-computed)
+           14 hex chars = full frame, sent as-is
+port:      print the UART port currently in use and exit
+
+The port is auto-detected from the kernel log (UARTA @ fe078000).
+Override it with the LED_PORT environment variable if needed.
+EOF
+}
+
+# Convert an even-length hex string to printf \NNN octal escapes.
+# (POSIX sh printf does not understand \xHH; bash does, but we stay portable.)
+hex2esc() {
+    printf '%s' "$1" | awk '
+        BEGIN { for (i = 0; i < 256; i++) val[sprintf("%02x", i)] = i }
+        {
+            out = ""
+            for (i = 1; i <= length($0); i += 2)
+                out = out sprintf("\\%03o", val[substr($0, i, 2)])
+            printf "%s", out
+        }'
+}
+
+# Pretty-print a hex string as space-separated byte pairs.
+hex2pairs() {
+    printf '%s' "$1" | sed 's/../& /g; s/ $//'
+}
+
+# Send a 3-byte payload; the checksum is computed here.
+send_payload() {
+    p=$1
+    b1=$(printf '%s' "$p" | cut -c1-2)
+    b2=$(printf '%s' "$p" | cut -c3-4)
+    b3=$(printf '%s' "$p" | cut -c5-6)
+    chk=$(( (0x$b1 + 0x$b2 + 0x$b3 + 0x45) % 256 ))
+    frame=${HEADER}${p}$(printf '%02x' "$chk")
+    stty -F "$PORT" 9600 raw -echo
+    printf "$(hex2esc "$frame")" > "$PORT"
+    hex2pairs "$frame"
+}
+
+# Send a full 7-byte frame as-is.
+send_frame() {
+    stty -F "$PORT" 9600 raw -echo
+    printf "$(hex2esc "$1")" > "$PORT"
+    hex2pairs "$1"
+}
+
+payload_for() {
+    case $1 in
+        off)      echo 140000 ;;
+        auto)     echo 23e000 ;;
+        flash)    echo 25c800 ;;
+        rainbow)  echo 14d000 ;;
+        fade)     echo 23f000 ;;
+        runwater) echo 23b001 ;;
+        flow)     echo 234800 ;;
+        color1)   echo 142800 ;;
+        color2)   echo 143000 ;;
+        red)      echo 141000 ;;
+        green)    echo 141011 ;;
+        blue)     echo 141001 ;;
+        *)        return 1 ;;
+    esac
+}
+
+[ $# -ge 1 ] || { usage >&2; exit 2; }
+
+case $1 in
+    list|-h|--help)
+        usage
+        exit 0
+        ;;
+    port)
+        printf '%s\n' "$PORT"
+        exit 0
+        ;;
+    raw)
+        hex=${2:-}
+        case ${#hex} in
+            6)  send_payload "$hex" ;;
+            14) send_frame "$hex" ;;
+            *)  echo "error: raw hex must be 6 chars (payload) or 14 chars (full frame)" >&2
+                exit 2 ;;
+        esac
+        ;;
+    *)
+        if p=$(payload_for "$1"); then
+            send_payload "$p"
+        else
+            echo "error: unknown mode '$1' (try 'led list')" >&2
+            exit 2
+        fi
+        ;;
+esac
